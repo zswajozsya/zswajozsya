@@ -1,14 +1,34 @@
-pub fn add(left: usize, right: usize) -> usize {
-    left + right
+use std::path::PathBuf;
+
+type Color = (u8, u8, u8);
+
+struct LabelOption {
+    name: String,
+    desc: Option<String>,
+    color: Color,
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
+struct Label {
+    name: String,
+    desc: Option<String>,
+    color: Color,
+    options: Vec<LabelOption>,
+}
 
-    #[test]
-    fn it_works() {
-        let result = add(2, 2);
-        assert_eq!(result, 4);
-    }
+struct File {
+    filename: String,
+    labels: Vec<usize>,
+}
+
+pub struct Directory {
+    files: Vec<File>,
+    labels: Vec<Label>,
+}
+
+pub fn get<P: Into<PathBuf>>(path: P) -> Option<Directory> {
+    todo!()
+}
+pub fn set<P: Into<PathBuf>>(path: P, dir: Directory) {}
+pub fn check<P: Into<PathBuf>>(path: P) -> Result<(), ()> {
+    todo!()
 }
