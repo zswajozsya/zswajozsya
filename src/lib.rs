@@ -1,13 +1,18 @@
-use std::path::PathBuf;
+mod get;
+mod set;
+
+use serde::{Deserialize, Serialize};
 
 type Color = (u8, u8, u8);
 
+#[derive(Debug, Deserialize, Serialize)]
 struct LabelOption {
     name: String,
     desc: Option<String>,
     color: Color,
 }
 
+#[derive(Debug, Deserialize, Serialize)]
 struct Label {
     name: String,
     desc: Option<String>,
@@ -15,20 +20,17 @@ struct Label {
     options: Vec<LabelOption>,
 }
 
+#[derive(Debug, Deserialize, Serialize)]
 struct File {
     filename: String,
     labels: Vec<usize>,
 }
 
+#[derive(Debug, Deserialize, Serialize)]
 pub struct Directory {
     files: Vec<File>,
     labels: Vec<Label>,
 }
 
-pub fn get<P: Into<PathBuf>>(path: P) -> Option<Directory> {
-    todo!()
-}
-pub fn set<P: Into<PathBuf>>(path: P, dir: Directory) {}
-pub fn check<P: Into<PathBuf>>(path: P) -> Result<(), ()> {
-    todo!()
-}
+pub use get::get;
+pub use set::set;
