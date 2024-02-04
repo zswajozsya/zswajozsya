@@ -1,11 +1,8 @@
-mod error;
-
 use std::path::PathBuf;
 
-use crate::Directory;
-use self::error::GetError;
+use crate::{error::Error, Directory};
 
-pub fn get<P: Into<PathBuf>>(path: P) -> Result<Directory, GetError> {
+pub fn get<P: Into<PathBuf>>(path: P) -> Result<Directory, Error> {
     let mut path: PathBuf = path.into();
     path.push(".zswajozsya.ron");
     let text = std::fs::read_to_string(path)?;

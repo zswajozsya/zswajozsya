@@ -1,5 +1,6 @@
 mod get;
 mod set;
+mod error;
 
 use serde::{Deserialize, Serialize};
 
