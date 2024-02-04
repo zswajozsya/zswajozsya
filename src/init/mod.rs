@@ -5,7 +5,6 @@ use crate::{error::Error, set, Directory, File};
 pub fn init<P: Into<PathBuf>>(path: P) -> Result<(), Error> {
     let path: PathBuf = path.into();
     let files = std::fs::read_dir(&path)?
-        .map(|e| e)
         .collect::<Result<Vec<DirEntry>, std::io::Error>>()?
         .into_iter()
         .map(|e| File {
