@@ -13,11 +13,18 @@ struct LabelOption {
 }
 
 #[derive(Debug, Deserialize, Serialize)]
-struct Label {
-    name: String,
-    desc: Option<String>,
-    color: Color,
-    options: Vec<LabelOption>,
+enum Label {
+    Bool {
+        name: String,
+        desc: Option<String>,
+        color: Color,
+    },
+    Radio {
+        name: String,
+        desc: Option<String>,
+        color: Color,
+        options: Vec<LabelOption>,
+    },
 }
 
 #[derive(Debug, Deserialize, Serialize)]
