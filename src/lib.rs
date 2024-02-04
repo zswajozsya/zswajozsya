@@ -1,5 +1,6 @@
 mod get;
 mod set;
+mod init;
 mod error;
 
 use serde::{Deserialize, Serialize};
@@ -42,3 +43,4 @@ pub struct Directory {
 
 pub use get::get;
 pub use set::set;
+pub use init::init;
