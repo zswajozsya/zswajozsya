@@ -10,14 +10,13 @@ type Color = (u8, u8, u8);
 #[derive(Debug, Deserialize, Serialize)]
 struct LabelOption {
     name: String,
-    desc: Option<String>,
-    color: Color,
+    desc: String,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
 struct Label {
     name: String,
-    desc: Option<String>,
+    desc: String,
     color: Color,
     options: Vec<LabelOption>,
 }
