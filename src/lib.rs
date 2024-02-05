@@ -1,7 +1,7 @@
-mod get;
-mod set;
-mod init;
 mod error;
+mod get;
+mod init;
+mod set;
 
 use serde::{Deserialize, Serialize};
 
@@ -15,24 +15,17 @@ struct LabelOption {
 }
 
 #[derive(Debug, Deserialize, Serialize)]
-enum Label {
-    Bool {
-        name: String,
-        desc: Option<String>,
-        color: Color,
-    },
-    Radio {
-        name: String,
-        desc: Option<String>,
-        color: Color,
-        options: Vec<LabelOption>,
-    },
+struct Label {
+    name: String,
+    desc: Option<String>,
+    color: Color,
+    options: Vec<LabelOption>,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
 struct File {
     filename: String,
-    labels: Vec<usize>,
+    labels: Vec<Vec<bool>>,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
@@ -42,5 +35,5 @@ pub struct Directory {
 }
 
 pub use get::get;
-pub use set::set;
 pub use init::init;
+pub use set::set;
