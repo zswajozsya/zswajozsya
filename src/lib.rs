@@ -5,8 +5,6 @@ mod set;
 
 use serde::{Deserialize, Serialize};
 
-type Color = (u8, u8, u8);
-
 #[derive(Debug, Deserialize, Serialize)]
 struct LabelOption {
     name: String,
@@ -17,7 +15,7 @@ struct LabelOption {
 struct Label {
     name: String,
     desc: String,
-    color: Color,
+    color: String,
     options: Vec<LabelOption>,
 }
 
