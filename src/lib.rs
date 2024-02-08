@@ -20,14 +20,14 @@ struct Label {
 }
 
 #[derive(Debug, Deserialize, Serialize)]
-struct File {
+struct Entry {
     filename: String,
     labels: Vec<Vec<bool>>,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
 pub struct Directory {
-    files: Vec<File>,
+    entries: Vec<Entry>,
     labels: Vec<Label>,
 }
 
