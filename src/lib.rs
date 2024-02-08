@@ -5,29 +5,29 @@ mod set;
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Deserialize, Serialize)]
-struct LabelOption {
-    name: String,
-    desc: String,
+pub struct LabelOption {
+    pub name: String,
+    pub desc: String,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
-struct Label {
-    name: String,
-    desc: String,
-    color: String,
-    options: Vec<LabelOption>,
+pub struct Label {
+    pub name: String,
+    pub desc: String,
+    pub color: String,
+    pub options: Vec<LabelOption>,
 }
 
 #[derive(Debug, Deserialize, Serialize)]
-struct Entry {
-    name: String,
-    labels: Vec<Vec<bool>>,
+pub struct Entry {
+    pub name: String,
+    pub labels: Vec<Vec<bool>>,
 }
 
 #[derive(Debug, Deserialize, Serialize, Default)]
 pub struct Directory {
-    entries: Vec<Entry>,
-    labels: Vec<Label>,
+    pub entries: Vec<Entry>,
+    pub labels: Vec<Label>,
 }
 
 pub use get::get;
