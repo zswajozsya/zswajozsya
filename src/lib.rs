@@ -1,6 +1,5 @@
 mod error;
 mod get;
-mod init;
 mod set;
 
 use serde::{Deserialize, Serialize};
@@ -21,16 +20,15 @@ struct Label {
 
 #[derive(Debug, Deserialize, Serialize)]
 struct Entry {
-    filename: String,
+    name: String,
     labels: Vec<Vec<bool>>,
 }
 
-#[derive(Debug, Deserialize, Serialize)]
+#[derive(Debug, Deserialize, Serialize, Default)]
 pub struct Directory {
     entries: Vec<Entry>,
     labels: Vec<Label>,
 }
 
 pub use get::get;
-pub use init::init;
 pub use set::set;
